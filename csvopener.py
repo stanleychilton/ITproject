@@ -14,14 +14,13 @@ while True:
             line_count = 0
             for row in csv_reader:
                 if line_count == 0:
-                    row[0] = (row[0])[3:]
                     print(f'Column names are {", ".join(row)}')
                     line_count += 1
                 else:
                     print(f'\t{row[0]} {row[1]} {row[2]} {row[3]}')
-                    subprocess.call("sleep.sh", shell=True)
+                    subprocess.call(['sleep.sh', row[0], row[1], row[2], row[3]], shell=True)
                     line_count += 1
             print(f'Processed {line_count} lines.')
             break
-    except:
-        print("file not supported")
+    except Exception as e:
+        print(e)
