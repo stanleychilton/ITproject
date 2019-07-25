@@ -1,4 +1,4 @@
-import csv, os
+import csv, os, subprocess
 
 files = os.listdir()
 for x in range(0, len(files)):
@@ -19,6 +19,7 @@ while True:
                     line_count += 1
                 else:
                     print(f'\t{row[0]} {row[1]} {row[2]} {row[3]}')
+                    subprocess.call("sleep.sh", shell=True)
                     line_count += 1
             print(f'Processed {line_count} lines.')
             break
