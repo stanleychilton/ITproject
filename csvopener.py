@@ -1,6 +1,13 @@
-import csv
+import csv, os
 
-with open('student_list.csv') as csv_file:
+files = os.listdir()
+for x in range(0, len(files)):
+    print(x+1, files[x])
+
+i = int(input("please choose a csv file to read"))
+chosenfile = files[i-1]
+
+with open(chosenfile) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
