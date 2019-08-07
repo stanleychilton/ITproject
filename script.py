@@ -1,10 +1,10 @@
 import os
 
 #download moodle
-os.chdir("./")
+os.chdir("../")
 os.chdir("/opt")
 os.system("sudo git clone https://github.com/moodle/moodle.git")
-os.chdir("/moodle")
+os.chdir("moodle")
 os.system("sudo git branch -a")
 os.system("sudo git branch --track MOODLE_36_STABLE origin/MOODLE_36_STABLE")
 os.chdir("/opt")
