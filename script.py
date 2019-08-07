@@ -1,7 +1,7 @@
 import os
 
 #download moodle
-
+os.chdir("~")
 os.chdir("/opt")
 os.system("sudo git clone https://github.com/moodle/moodle.git")
 os.chdir("/moodle")
