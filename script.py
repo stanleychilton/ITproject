@@ -37,7 +37,7 @@ f.close()
 os.system("sudo chmod o-w /etc/mysql/mysql.conf.d/mysqld.cnf")
 os.system("sudo service mysql restart")
 
-os.system("sudo apt install python3-pip")
+os.system("sudo apt -y install python3-pip")
 os.system("python3 -m pip install pymysql")
 #find user and password
 
