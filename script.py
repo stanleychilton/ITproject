@@ -52,6 +52,10 @@ with open("/etc/mysql/debian.cnf","r") as f:
             pwd=line[11:-1]
 f.close()
 
+os.system("sudo apt update")
+os.system("sudo apt install python3-pip")
+os.system("pip3 install pymysql")
+
 import pymysql
 
 # 连接mysql数据库
