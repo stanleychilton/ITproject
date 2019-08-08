@@ -22,7 +22,7 @@ with open("/etc/mysql/mysql.conf.d/mysqld.cnf","r+") as f:
     for line in f.readlines():
         if(line.find('default_storage_engine = innodb') == 0):
             x=1
-            print("s")
+#             print("s")
     f.seek(0)
     print(len(newsta))
     for line in f.readlines():
@@ -51,10 +51,6 @@ with open("/etc/mysql/debian.cnf","r") as f:
         if(line.find('password') == 0):
             pwd=line[11:-1]
 f.close()
-
-os.system("sudo apt update")
-os.system("sudo apt install python3-pip")
-os.system("pip3 install pymysql")
 
 import pymysql
 
