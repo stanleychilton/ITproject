@@ -50,6 +50,8 @@ with open("/etc/mysql/debian.cnf","r") as f:
             pwd=line[11:-1]
 f.close()
 
+os.system("sudo apt install python3-pip")
+os.system("python3 -m pip install pymysql")
 
 import pymysql
 
@@ -63,8 +65,8 @@ sql2="create user 'moodledude'@'%' IDENTIFIED BY 'passwordformoodledude';"
 cur.execute(sql1)
 cur.execute(sql2)
 
-cur.excute("GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodledude@localhost IDENTIFIED BY 'passwordformoodledude';")
-cur.excute('quit;')
+cur.execute("GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodledude@localhost IDENTIFIED BY 'passwordformoodledude';")
+cur.execute('quit;')
 
 cur.close()
 con.close()
