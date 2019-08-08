@@ -7,7 +7,6 @@ os.system("sudo git clone https://github.com/moodle/moodle.git")
 os.chdir("/opt/moodle")
 os.system("sudo git branch -a")
 os.system("sudo git branch --track MOODLE_36_STABLE origin/MOODLE_36_STABLE")
-os.chdir("/opt")
 os.system("sudo git checkout MOODLE_36_STABLE")
 os.system("sudo cp -R /opt/moodle /var/www/html/")
 os.system("sudo mkdir /var/moodledata")
@@ -51,9 +50,6 @@ with open("/etc/mysql/debian.cnf","r") as f:
             pwd=line[11:-1]
 f.close()
 
-
-os.system("sudo apt install python3-pip")
-os.system("python3 -m pip install pymysql")
 
 import pymysql
 
