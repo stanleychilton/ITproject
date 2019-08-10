@@ -53,19 +53,18 @@ with open("/etc/mysql/debian.cnf","r") as f:
 f.close()
 
 import pymysql
-
+print("find the top level user and password",username,pwd)
 # 连接mysql数据库
 con = pymysql.connect(host="127.0.0.1",user=username,password=pwd,port=3306)
 # 创建游标 ， 利用游标来执行sql语句
 cur = con.cursor()
 sql1="CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 
-sql2="create user 'moodledude'@'%' IDENTIFIED BY 'passwordformoodledude';"
+sql2="create user 'moodledude'@'%' IDENTIFIED BY 'PWD123pwd@';"
 
 cur.execute(sql1)
 cur.execute(sql2)
 
-cur.execute("GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodledude@localhost IDENTIFIED BY 'passwordformoodledude';")
-cur.execute('quit;')
+cur.execute("GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodledude@localhost IDENTIFIED BY 'PWD123pwd@';")
 
 cur.close()
 con.close()
