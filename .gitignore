@@ -10,3 +10,5 @@ New Text Document.txt
 .idea/dbnavigator.xml
 devenv-key.pem
 logs.txt
+__pycache__/email_handler.cpython-35.pyc
+__pycache__/email_handler.cpython-36.pyc

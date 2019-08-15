@@ -1,4 +1,4 @@
-import ConfigParser, inspect, os
+import configparser, inspect, os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -13,7 +13,7 @@ settings_File_Path =  os.path.join(settings_Dir, 'settings.ini')
 def read_Email_Settings():
 
     try:
-        config = ConfigParser.ConfigParser()
+        config = configparser.ConfigParser()
         config.optionxform=str   #By default config returns keys from Settings file in lower case. This line preserves the case for keys
         config.read(settings_File_Path)
 
@@ -30,8 +30,8 @@ def read_Email_Settings():
         PASSWORD = config.get("EMAIL","PASSWORD")
 
     except Exception as error_msg:
-        print "Error while trying to read SMTP/EMAIL Settings."
-        print {"Error" : str(error_msg)}
+        print ("Error while trying to read SMTP/EMAIL Settings.")
+        print ({"Error" : str(error_msg)})
 #=====================================================================================
 
 read_Email_Settings()

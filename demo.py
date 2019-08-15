@@ -1,13 +1,20 @@
+import smtplib, ssl
 
-#import the class definition from "email_handler.py" file
-from email_handler import Class_eMail
+port = 587  # For SSL
+smtp_server = "smtp.gmail.com"
+sender_email = "codfisharecool987@gmail.com"  # Enter your address
+receiver_email = "stanleychilton@live.com"  # Enter receiver address
+password = "CodFish123"
+message = """\
+Subject: Hi there
 
-#set the email ID where you want to send the test email 
-To_Email_ID = ""
+This message is sent from Python."""
 
-
-# Send Plain Text Email 
-email = Class_eMail()
-email.send_Text_Mail(To_Email_ID, 'Plain Text Mail Subject', 'This is sample plain test email body.')
-del email
+context = ssl.create_default_context()
+with smtplib.SMTP(smtp_server, port) as server:
+    server.ehlo()  # Can be omitted
+    server.starttls(context=context)
+    server.ehlo()  # Can be omitted
+    server.login(sender_email, password)
+    server.sendmail(sender_email, receiver_email, message)
 
