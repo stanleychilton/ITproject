@@ -9,7 +9,7 @@ os.system("sudo service apache2 restart")
 os.system("sudo apt -y install git")
 
 os.system("sudo apt -y update")
-os.system("sudo apt install python3-pip")
+os.system("sudo apt -y install python3-pip")
 os.system("pip3 install pymysql")
 
 os.system("python3 script.py")
