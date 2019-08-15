@@ -70,4 +70,4 @@ cur.close()
 con.close()
 
 os.system("sudo chmod -R 777 /var/www/html/moodle")
-os.system("sudo chmod -R 0755 /var/www/html/moodle")
+//os.system("sudo chmod -R 0755 /var/www/html/moodle")
