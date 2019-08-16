@@ -12,4 +12,4 @@ os.system("sudo apt -y update")
 os.system("sudo apt -y install python3-pip")
 os.system("pip3 install pymysql")
 
-os.system("python3 script.py")
+#os.system("python3 script.py")
