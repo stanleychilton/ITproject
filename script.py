@@ -69,7 +69,7 @@ cur.execute("GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DR
 
 cur.close()
 con.close()
-os.system("sudo sh phpmyadmin.sh")
+os.system("sudo sh /home/ubuntu/ITproject/phpmyadmin.sh")
 #os.system("sudo chmod -R 777 /var/www/html/moodle")
 #os.system("sudo chmod -R 0755 /var/www/html/moodle")
 
