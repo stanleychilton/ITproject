@@ -79,4 +79,4 @@ cur.execute("GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DR
 
 cur.close()
 con.close()
-os.system("sh phpmyadmin.sh")
+os.system("sudo sh phpmyadmin.sh")
