@@ -5,12 +5,6 @@ ec2 = boto3.resource('ec2')
 # import the class definition from "email_handler.py" file
 students_list = []
 
-port = 587  # For SSL
-smtp_server = "smtp.gmail.com"
-sender_email = "codfisharecool987@gmail.com"  # Enter your address
-password = "CodFish123"
-
-
 
 #Read number of lines and set up that many instances
 with open(r'C:\Users\Admin\PycharmProjects\EC2Creator\test.csv') as csv_file:
@@ -58,18 +52,7 @@ while True:
                 else:
                     print(f'\t{row[0]} {row[1]} {row[2]} {row[3]}')
                     students_list.append([row[0], row[1], row[2], row[3]])
-                    #subprocess.call(['sleep.sh', row[0], row[1], row[2], row[3]], shell=True)
-                    # receiver_email = row[3]  # Enter receiver address
-                    #
-                    # message = """hello"""
-                    #
-                    # context = ssl.create_default_context()
-                    # with smtplib.SMTP(smtp_server, port) as server:
-                    #     server.ehlo()  # Can be omitted
-                    #     server.starttls(context=context)
-                    #     server.ehlo()  # Can be omitted
-                    #     server.login(sender_email, password)
-                    #     server.sendmail(sender_email, receiver_email, message)
+
                     line_count += 1
             print(f'Processed {line_count} lines.')
             break
