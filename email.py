@@ -26,10 +26,10 @@ while True:
 
 
                 message = """\
-                Subject: Massey 158.120 moodle link
+Subject: Massey 158.120 moodle link
                 
-                Here is the link to your live version of moodle.
-                """ + row[4]
+Here is the link to your live version of moodle.
+""" + row[4]
                 print(message)
                 context = ssl.create_default_context()
                 with smtplib.SMTP(smtp_server, port) as server:
