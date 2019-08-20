@@ -41,3 +41,9 @@ with open("/etc/pam.d/vsftpd", 'r+') as f3:
 f3.close()
 
 os.system("sudo service vsftpd restart")
+
+#after that go to the website https://www.net2ftp.com
+#input the ip address
+#username:ftpuser
+#password:1234
+#then you can see the files in ftp server
