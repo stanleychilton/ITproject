@@ -1,5 +1,17 @@
 # ITproject
 
+### Description
+
+This script creates an EC2 instance for every student in a csv file (comma delimited) and then ssh's into it and installs moodle, mysql, apache webserver.
+the instances are created along side a security group which opens the instances for connection through a browser so that the student can view their instance. After all instances are created the student and their assigned url are saved into a output csv file which when all instances are working and moodle is installed. 
+This means every student can be emailed their url at the click of one button when the teacher or linux admin is ready.
+
+**(installation guide below)**
+
+
+---
+
+
 ### Required software
 
 1. **python 3**
