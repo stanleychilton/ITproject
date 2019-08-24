@@ -8,8 +8,19 @@ ec2 = boto3.resource('ec2')
 
 students_list = []
 
-#Read number of lines in the CSV File
-with open(r'C:\Users\Admin\PycharmProjects\EC2Creator\test.csv') as csv_file:
+keypair_name = 'ec2-keypair2'
+
+
+new_keypair = ec2.create_key_pair(KeyName=keypair_name)
+
+with open('.\ec2-keypair2', 'w') as file:
+    file.write(new_keypair.key_material)
+
+print(new_keypair.key_fingerprint)
+
+
+# Read number of lines in the CSV File
+with open('test.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -50,9 +61,9 @@ l = list(filter(None, l))
 #SSH into all of the instances and install moodle on them
 
 x = 0
-while x <= number_of_lines:
+while x <= number_of_lines - 1:
 
-    key = paramiko.RSAKey.from_private_key_file(r"C:\Users\Admin\PycharmProjects\Tester\ec2-keypair2.pem")
+    key = paramiko.RSAKey.from_private_key_file(r".\ec2-keypair2")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
@@ -63,15 +74,19 @@ while x <= number_of_lines:
 
         # Execute a command(cmd) after connecting/ssh to an instance
         stdin, stdout, stderr = client.exec_command("git clone https://github.com/fish258/configSite")
-        print("now")
+        print("Instance {} beingning Now".format(x + 1))
         time.sleep(10)
         stdin, stdout, stderr = client.exec_command("python3 configSite/installLAMP.py")
         print(stdin, "\n\n", stdout.read(), "\n\n", stderr.read())
-        print("now")
         print(stdout.read())
+        print("Instance {} finished installing".format(x + 1))
+
+
+
 
     except():
         print("test")
+
     x = x + 1
 
 #Reads the CSV file
