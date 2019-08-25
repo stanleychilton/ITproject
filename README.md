@@ -33,4 +33,4 @@ This means every student can be emailed their url at the click of one button whe
 4. Run command `aws configure` in your command line and input your access key, security key ([shown on this page](https://console.aws.amazon.com/iam/home?#/users) by creating a user), and region.
 5. Run python script `AutomaticEC2Creator.py` and select the csv file containing the students you want to create instances for (this will complete the setup for every instance).
 6. Once the instance are set up and you are ready for the students to access their sites yuo need to allow all traffic on the default security group. This is done by right clicking on the default security group and selecting edit inbound rules. Once this is done select add rule and change the Type to "all traffic".
-7.when ready to give students the urls to their instances run the `email.py` which will send an email to every user with the url.
+7. When ready to give students the urls to their instances run the `email.py` which will send an email to every user with the url.
