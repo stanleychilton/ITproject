@@ -5,8 +5,8 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-MY_ADDRESS = 'my_address@example.comm'
-PASSWORD = 'mypassword'
+MY_ADDRESS = 'my_address@example.comm'  ################## going to change this to a user input depending on the outcome
+PASSWORD = 'mypassword'                 ################## of testing so that theres no hardcoded usernames and passwords
 
 
 def get_contacts(filename):
@@ -40,7 +40,7 @@ def main():
     message_template = read_template('message.txt')
 
     # set up the SMTP server
-    s = smtplib.SMTP(host='your_host_address_here', port=your_port_here)
+    s = smtplib.SMTP(host='your_host_address_here', port=your_port_here) ###### edit this line
     s.starttls()
     s.login(MY_ADDRESS, PASSWORD)
 
