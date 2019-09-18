@@ -5,8 +5,10 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-MY_ADDRESS = 'testyacount82@yahoo.com'  ################## going to change this to a user input depending on the outcome
-PASSWORD = 'acounttest'                 ################## of testing so that theres no hardcoded usernames and passwords
+from getpass import getpass
+
+MY_ADDRESS = input(">>> ") #'testyacount82@yahoo.com'  ################## going to change this to a user input depending on the outcome
+PASSWORD = input(">>> ") #'acounttest'                 ################## of testing so that theres no hardcoded usernames and passwords
 
 
 def get_contacts(filename):
