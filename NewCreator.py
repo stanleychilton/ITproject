@@ -4,6 +4,8 @@ import time
 import paramiko
 import requests
 
+
+url = "http://www.clicker-box.com/"
 client = boto3.client('ec2')
 ec2 = boto3.resource('ec2')
 
@@ -17,7 +19,7 @@ with open('test.csv') as csv_file:
         else:
             print(row)
             userdata = {"sid": row[0], "firstname": row[1], "lastname": row[2], "email": row[3]}
-            resp = requests.post('http://www.clicker-box.com/selectionsite/users.php', params=userdata)
+            resp = requests.post( url + 'selectionsite/users.php', params=userdata)
             line_count += 1
 
 
