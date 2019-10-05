@@ -13,5 +13,5 @@ for i in ec2.instances.all():
 
 for j in l:
      userdata = {"url": j[0], "id":j[1]}
-     resp = requests.post( url + 'selectionsite/instances.php', params=userdata)
+     resp = requests.post('http://www.clicker-box.com/selectionsite/instances.php', params=userdata)
      print(resp)
