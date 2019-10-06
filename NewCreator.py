@@ -9,6 +9,18 @@ url = "http://www.clicker-box.com/"
 client = boto3.client('ec2')
 ec2 = boto3.resource('ec2')
 
+#Creates key-pair
+
+keypair_name = 'ec2-keypair2'
+
+
+new_keypair = ec2.create_key_pair(KeyName=keypair_name)
+
+with open('.\ec2-keypair2', 'w') as file:
+    file.write(new_keypair.key_material)
+
+print(new_keypair.key_fingerprint)
+
 # Read number of lines in the CSV File
 with open('test.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
