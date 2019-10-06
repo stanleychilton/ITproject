@@ -2,9 +2,9 @@
 
 ### Description
 
-This script creates an EC2 instance for every student in a csv file (comma delimited) and then ssh's into it and installs moodle, mysql, apache webserver.
-the instances are created along side a security group which opens the instances for connection through a browser so that the student can view their instance. After all instances are created the student and their assigned url are saved into a output csv file which when all instances are working and moodle is installed. 
-This means every student can be emailed their url at the click of one button when the teacher or linux admin is ready.
+This script creates one ec2 instance and installs moodle onto it. Once that has completed the image is shapshotted. The script then sets up as many instances as there are students in the class, all with moodle installed on them.
+the instances are created along side a security group which opens the instances for connection through a browser so that the student can view their instance.  
+
 
 **(installation guide below)**
 
@@ -31,6 +31,6 @@ This means every student can be emailed their url at the click of one button whe
     - for linux/mac the pip command `pip install awscli`
 3. Change the gmail address and password settings in the ______ file and turn on Less secure app access [here](https://myaccount.google.com/u/3/lesssecureapps?utm_source=google-account&utm_medium=web)
 4. Run command `aws configure` in your command line and input your access key, security key ([shown on this page](https://console.aws.amazon.com/iam/home?#/users) by creating a user), and region.
-5. Run python script `AutomaticEC2Creator.py` and select the csv file containing the students you want to create instances for (this will complete the setup for every instance).
+5. Run python script `newcreator.py`(this will complete the setup for every instance).
 6. Once the instance are set up and you are ready for the students to access their sites yuo need to allow all traffic on the default security group. This is done by right clicking on the default security group ([shown on the page](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#SecurityGroups:sort=desc:tag:Name)) and selecting edit inbound rules. Once this is done select add rule and change the Type to "all traffic".
-7. When ready to give students the urls to their instances run the `email.py` which will send an email to every user with the url.
+7. When ready to give students the urls email them the link to the website we have created. Here they will be able to select there instance and alos throughout the semester be able to tell if their instance is running with our system operation status script.
